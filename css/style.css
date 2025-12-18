@@ -1,0 +1,561 @@
+/* --- css/style.css (Versi Lengkap & Diperbarui) --- */
+
+/* Import Font & Font Awesome */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- CSS Variables & Global Reset --- */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #0056b3;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+    --text-color: #555;
+    --white-color: #ffffff;
+    --border-color: #ddd;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--white-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+h1, h2, h3, h4 {
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; text-align: center; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.1rem; }
+
+p { margin-bottom: 1rem; }
+
+section {
+    padding: 4rem 0;
+}
+
+/* --- Utility Classes --- */
+.text-center {
+    text-align: center;
+}
+
+.section-grey {
+    background: var(--light-color);
+}
+
+/* --- Header & Navbar --- */
+.main-header {
+    background: var(--white-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* PERUBAHAN CSS UNTUK LOGO */
+.logo {
+    display: flex; /* Menggunakan flexbox untuk menyusun item */
+    align-items: center; /* Menyelaraskan item secara vertikal di tengah */
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    gap: 0.75rem; /* Menambah jarak antara logo dan teks */
+}
+
+.logo img {
+    display: block;
+    height: 50px; /* Menyesuaikan tinggi logo agar seimbang dengan teks */
+    width: auto;
+}
+
+.main-nav a {
+    color: var(--dark-color);
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.main-nav a.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.2rem;
+}
+
+/* --- Hero Section --- */
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    height: 90vh;
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    color: var(--white-color);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.hero-buttons .btn {
+    margin: 0.5rem;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white-color);
+    border: 2px solid var(--white-color);
+}
+
+.btn-secondary:hover {
+    background: var(--white-color);
+    color: var(--dark-color);
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    background: var(--white-color);
+    color: var(--primary-color);
+}
+
+.btn-large:hover {
+    background: var(--light-color);
+    color: var(--primary-color);
+}
+
+/* --- Keunggulan Section --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: var(--white-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+/* --- Testimoni Section --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.testimonial-card {
+    background: var(--white-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    font-style: italic;
+}
+
+.testimonial-card p {
+    margin-bottom: 1rem;
+}
+
+.testimonial-card cite {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-style: normal;
+}
+
+/* --- CTA Section --- */
+#cta {
+    padding: 6rem 0;
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+#cta h2 {
+    color: var(--white-color);
+    font-size: 2.5rem;
+}
+
+#cta p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 1rem auto 2rem auto;
+}
+
+/* --- Kontak Section --- */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background: var(--dark-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* --- Responsive Design --- */
+@media(max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    #hero h1 { font-size: 2.8rem; }
+    .main-header .container {
+        flex-direction: column;
+    }
+    .main-nav {
+        margin-top: 1rem;
+    }
+    .main-nav a {
+        margin: 0 0.5rem;
+    }
+    .features-grid, .services-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =============================================================== */
+/* --- CSS UNTUK LAYANAN (DESAIN BARU) --- */
+/* =============================================================== */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    text-align: left;
+}
+
+.service-card {
+    background: var(--white-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden; /* Penting untuk memastikan konten tidak meluber */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.service-card .card-header {
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.service-icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.service-icon-circle i {
+    font-size: 2rem;
+}
+
+.service-card h3 {
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.service-card p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.btn-detail {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-detail:hover {
+    background: var(--secondary-color);
+}
+
+.service-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    background-color: #f9f9f9;
+    padding: 0 2rem;
+}
+
+.service-details.active {
+    max-height: 600px; /* Cukup besar untuk menampung konten */
+    padding: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.detail-section {
+    margin-bottom: 1.5rem;
+}
+
+.detail-section h4 {
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.detail-section .price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.detail-section .price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.detail-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.detail-section ul li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.detail-section ul li::before {
+    content: '\f00c'; /* Icon check dari FontAwesome */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary-color);
+}
+
+.service-details .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* =============================================================== */
+/* --- CSS UNTUK FORM RESERVASI --- */
+/* =============================================================== */
+
+#reservation-form {
+    max-width: 800px;
+    margin: auto;
+    background: var(--white-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+#reservation-form fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#reservation-form legend {
+    padding: 0 0.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    border-bottom: none;
+    width: auto;
+}
+
+#reservation-form legend i {
+    margin-right: 0.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin-top: 1rem;
+}
+
+.form-submit:hover {
+    background: var(--secondary-color);
+}
+
+.form-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    margin-top: 1rem;
+}
+
+.form-note i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+#form-feedback {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    background: #e7f4e8;
+    border: 1px solid #b5d7b8;
+    border-radius: 10px;
+    color: #2d5a2f;
+}
+
+#harga-container {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #e7f4e8;
+    border: 1px solid #b5d7b8;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#harga-container strong {
+    color: #2d5a2f;
+    font-size: 1rem;
+}
+
+#harga-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0.5rem 0 0 0;
+}
+
+@media(max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
