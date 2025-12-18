@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi Kelas - Genius Logic Class</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://z-cdn-media.chatglm.cn/files/a7d2bc40-3964-453b-9822-cded9fedd3cc.jpg?auth_key=1866050394-048561b5be814972bc06ab91197b8070-0-2001e1232385889effeba0922075034a" alt="Logo Genius Logic Class">
+                <span>Genius Logic Class</span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">Beranda</a>
+                <a href="layanan.html">Layanan</a>
+                <a href="tentang.html">Tentang</a>
+                <a href="kontak.html" class="active">Reservasi</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Form Reservasi Section -->
+        <section id="reservation" class="section-grey">
+            <div class="container">
+                <h2>Formulir Pendaftaran Siswa Baru</h2>
+                <p style="text-align:center; max-width: 600px; margin: auto;">Isi formulir berikut untuk mendaftarkan putra-putri Anda. Data akan langsung terkirim ke WhatsApp kami.</p>
+                
+                <div id="reservation-form">
+                    <!-- PERUBAHAN: action dan method dihapus, akan dihandle oleh JavaScript -->
+                    <form id="contactForm">
+                        
+                        <!-- Bagian 1: Data Orang Tua/Wali -->
+                        <fieldset>
+                            <legend><i class="fas fa-user-friends"></i> Data Orang Tua / Wali</legend>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="parent-name">Nama Lengkap</label>
+                                    <input type="text" id="parent-name" name="parent-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="whatsapp">Nomor WhatsApp (Aktif)</label>
+                                    <input type="tel" id="whatsapp" name="whatsapp" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Aktif</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </fieldset>
+
+                        <!-- Bagian 2: Data Siswa & Pemilihan Program -->
+                        <fieldset>
+                            <legend><i class="fas fa-graduation-cap"></i> Data Siswa & Pemilihan Program</legend>
+                            
+                            <div class="form-group">
+                                <label for="student-name">Nama Lengkap Siswa</label>
+                                <input type="text" id="student-name" name="student-name" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="student-grade">Tingkatan Kelas Saat Ini</label>
+                                    <select id="student-grade" name="student-grade" required>
+                                        <option value="">-- Pilih Tingkatan --</option>
+                                        <option value="Kelas 1 SD">Kelas 1 SD</option>
+                                        <option value="Kelas 2 SD">Kelas 2 SD</option>
+                                        <option value="Kelas 3 SD">Kelas 3 SD</option>
+                                        <option value="Kelas 4 SD">Kelas 4 SD</option>
+                                        <option value="Kelas 5 SD">Kelas 5 SD</option>
+                                        <option value="Kelas 6 SD">Kelas 6 SD</option>
+                                        <option value="Kelas 7 SMP">Kelas 7 SMP</option>
+                                        <option value="Kelas 8 SMP">Kelas 8 SMP</option>
+                                        <option value="Kelas 9 SMP">Kelas 9 SMP</option>
+                                        <option value="Kelas 10 SMA">Kelas 10 SMA</option>
+                                        <option value="Kelas 11 SMA">Kelas 11 SMA</option>
+                                        <option value="Kelas 12 SMA">Kelas 12 SMA</option>
+                                        <option value="Lainnya">Lainnya (Mahasiswa/Umum)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="program">Program yang Diminati</label>
+                                    <select id="program" name="program" required>
+                                        <option value="">-- Pilih Program --</option>
+                                        <optgroup label="Kelas Reguler">
+                                            <option value="Kelas Reguler Matematika">Kelas Reguler Matematika</option>
+                                            <option value="Kelas Reguler Komputer">Kelas Reguler Komputer</option>
+                                        </optgroup>
+                                        <optgroup label="Kelas Privat">
+                                            <option value="Kelas Privat Matematika">Kelas Privat Matematika</option>
+                                            <option value="Kelas Privat Komputer Basic">Kelas Privat Komputer Basic</option>
+                                            <option value="Kelas Privat Komputer Office">Kelas Privat Komputer Office</option>
+                                            <option value="Kelas Privat Komputer Design">Kelas Privat Komputer Design</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Tempat menampilkan harga -->
+                            <div id="harga-container" style="display: none;">
+                                <strong>Estimasi Biaya:</strong>
+                                <p id="harga-text"></p>
+                            </div>
+                            <!-- Input tersembunyi untuk mengirim harga ke Formspree -->
+                            <input type="hidden" id="selected-harga" name="selected-harga">
+
+                        </fieldset>
+
+                        <!-- Bagian 3: Pesan Tambahan -->
+                        <fieldset>
+                            <legend><i class="fas fa-comment-dots"></i> Pesan atau Pertanyaan (Opsional)</legend>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="Contoh: Saya tertarik untuk kelas privat dengan fokus pada persiapan Ujian Nasional."></textarea>
+                            </div>
+                        </fieldset>
+                        
+                        <button type="submit" class="form-submit">KIRIM KE WHATSAPP</button>
+                        <p class="form-note"><i class="fas fa-lock"></i> Data Anda aman. Setelah mengklik tombol, Anda akan diarahkan ke WhatsApp untuk mengirimkan data ini.</p>
+
+                    </form>
+                    <!-- Div untuk pesan sukses, awalnya tersembunyi -->
+                    <div id="form-feedback">
+    <h3>Terima Kasih, Pendaftaran Berhasil!</h3>
+        <p>Data Anda telah dikirim ke WhatsApp kami. Tim Genius Logic Class akan segera menghubungi Anda untuk konfirmasi lebih lanjut.
+            Jika tidak teralih secara otomatis, <a href="#" id="manual-link">klik di sini</a>.
+        </p>
+    <a href="index.html" class="btn btn-secondary">Kembali ke Beranda</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>Hak Cipta &copy; 2024 Genius Logic Class. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Form dan Pengiriman WhatsApp -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const form = document.getElementById('contactForm');
+            const feedbackDiv = document.getElementById('form-feedback');
+            const manualLink = document.getElementById('manual-link');
+            const gradeSelect = document.getElementById('student-grade');
+            const programSelect = document.getElementById('program');
+            const hargaContainer = document.getElementById('harga-container');
+            const hargaText = document.getElementById('harga-text');
+            const hiddenHargaInput = document.getElementById('selected-harga');
+
+            const targetPhoneNumber = "6287727934962"; // Nomor WhatsApp dalam format internasional
+
+            // Database harga (sama seperti sebelumnya)
+            const dataHarga = {
+                'Kelas Reguler Matematika': {
+                    'Kelas 1 SD': 'Rp 125.000 / bulan',
+                    'Kelas 2 SD': 'Rp 125.000 / bulan',
+                    'Kelas 3 SD': 'Rp 125.000 / bulan',
+                    'Kelas 4 SD': 'Rp 150.000 / bulan',
+                    'Kelas 5 SD': 'Rp 150.000 / bulan',
+                    'Kelas 6 SD': 'Rp 200.000 / bulan',
+                    'default': 'Hubungi kami untuk info paket SMP & SMA'
+                },
+                'Kelas Reguler Komputer': {
+                    'default': 'Mulai dari Rp 300.000 / 4 sesi (tergantung pilihan kelas: Basic, Office, Design)'
+                },
+                'Kelas Privat Matematika': 'Rp 50.000 / sesi',
+                'Kelas Privat Komputer Basic': 'Rp 50.000 / sesi',
+                'Kelas Privat Komputer Office': 'Rp 75.000 / sesi',
+                'Kelas Privat Komputer Design': 'Rp 90.000 / sesi'
+            };
+
+            function updateHarga() {
+                const selectedGrade = gradeSelect.value;
+                const selectedProgram = programSelect.value;
+
+                if (selectedGrade && selectedProgram) {
+                    let harga = '';
+                    const programData = dataHarga[selectedProgram];
+
+                    if (typeof programData === 'object') {
+                        harga = programData[selectedGrade] || programData['default'];
+                    } else {
+                        harga = programData;
+                    }
+                    
+                    hargaText.textContent = harga;
+                    hiddenHargaInput.value = harga;
+                    hargaContainer.style.display = 'block';
+                } else {
+                    hargaContainer.style.display = 'none';
+                }
+            }
+
+            gradeSelect.addEventListener('change', updateHarga);
+            programSelect.addEventListener('change', updateHarga);
+
+            // Event listener untuk submit form
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Mencegah form submit default
+
+                // 1. Ambil semua nilai dari form
+                const parentName = document.getElementById('parent-name').value;
+                const whatsapp = document.getElementById('whatsapp').value;
+                const email = document.getElementById('email').value;
+                const studentName = document.getElementById('student-name').value;
+                const studentGrade = document.getElementById('student-grade').value;
+                const program = document.getElementById('program').value;
+                const message = document.getElementById('message').value;
+                const harga = document.getElementById('selected-harga').value;
+
+                // 2. Buat pesan untuk WhatsApp
+                const whatsappMessage = `
+Halo Kak, saya ingin mendaftarkan anak saya di Genius Logic Class.
+
+*Data Diri Orang Tua/Wali:*
+- Nama: ${parentName}
+- WhatsApp: ${whatsapp}
+- Email: ${email}
+
+*Data Siswa:*
+- Nama Siswa: ${studentName}
+- Tingkatan Kelas: ${studentGrade}
+- Program yang Diminati: ${program}
+- Estimasi Biaya: ${harga}
+
+*Pesan Tambahan:*
+ ${message}
+                `.trim();
+
+                // 3. Encode pesan agar aman untuk URL
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+
+                // 4. Buat URL WhatsApp
+                const whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${encodedMessage}`;
+
+                // 5. Tampilkan feedback dan buka link WhatsApp
+                form.style.display = 'none';
+                feedbackDiv.style.display = 'block';
+                manualLink.href = whatsappUrl; // Set link untuk cadangan
+                
+                window.open(whatsappUrl, '_blank');
+            });
+        });
+    </script>
+
+</body>
+</html>

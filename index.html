@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Genius Logic Class - Bimbingan belajar Matematika dan Komputer untuk SD, SMP, SMA. Tingkatkan pemahaman konsep dan raih prestasi Anda.">
+    <title>Genius Logic Class - Bimbingan Belajar Matematika & Komputer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tambahkan library Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <!-- PERUBAHAN DI SINI: Logo dan teks dipisahkan -->
+            <a href="index.html" class="logo">
+                <img src="img/logo.jpeg" alt="Logo Genius Logic Class">
+                <span>Genius Logic Class</span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="active">Beranda</a>
+                <a href="layanan.html">Layanan</a>
+                <a href="tentang.html">Tentang</a>
+                <a href="kontak.html">Reservasi</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section yang Diperbarui -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Tingkatkan Nilai Matematika & Komputermu!</h1>
+                <p>Bimbingan belajar interaktif dengan fokus pada logika dan pemahaman konsep untuk Matematika dan Komputer.</p>
+                <div class="hero-buttons">
+                    <a href="kontak.html" class="btn btn-primary">Daftar Gratis Sekarang</a>
+                    <a href="#services" class="btn btn-secondary">Lihat Layanan</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Keunggulan Kami (Baru) -->
+        <section id="features" class="section-grey">
+            <div class="container text-center">
+                <h2>Keunggulan Kami</h2>
+                <p>Kami memberikan lebih dari sekadar bimbingan, kami membangun fondasi belajar yang kokoh.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>Tutor Ahli & Berpengalaman</h3>
+                        <p>Diajar oleh tutor profesional yang telah teruji dan berpengalaman di bidangnya.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Modul Belajar Interaktif</h3>
+                        <p>Materi disajikan secara menarik dengan video, quiz, dan tugas praktik.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Pantau Progress Belajar</h3>
+                        <p>Laporan perkembangan siswa dapat diakses secara real-time oleh orang tua.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layanan Section (Sekarang Sama Seperti di layanan.html) -->
+        <section id="services">
+            <div class="container">
+                <h2>Layanan Kami</h2>
+                <div class="services-grid">
+                    
+                    <!-- Card Kelas Reguler Matematika -->
+                    <div class="service-card">
+                        <div class="card-header" onclick="toggleDetails(this)">
+                            <div class="service-icon-circle" style="background-color: #e3f2fd;">
+                                <i class="fas fa-calculator" style="color: #1976d2;"></i>
+                            </div>
+                            <h3>Kelas Reguler Matematika</h3>
+                            <p>Materi disesuaikan dengan kurikulum terbaru, fokus pada pemahaman konsep dan logika.</p>
+                            <a href="#" class="btn-detail">Lihat Detail</a>
+                        </div>
+                        <div class="service-details">
+                            <div class="detail-section">
+                                <h4>Harga Mulai Dari</h4>
+                                <p class="price">Rp 125.000 <span>/ bulan</span></p>
+                            </div>
+                            <div class="detail-section">
+                                <h4>Yang Anda Dapatkan</h4>
+                                <ul>
+                                    <li>Materi disesuaikan dengan kurikulum</li>
+                                    <li>Modul latihan soal</li>
+                                    <li>Sertifikat</li>
+                                    <li>Garansi mengulang gratis</li>
+                                </ul>
+                            </div>
+                            <a href="kontak.html" class="btn btn-primary">Daftar Sekarang</a>
+                        </div>
+                    </div>
+
+                    <!-- Card Kelas Reguler Komputer -->
+                    <div class="service-card">
+                        <div class="card-header" onclick="toggleDetails(this)">
+                            <div class="service-icon-circle" style="background-color: #e8f5e9;">
+                                <i class="fas fa-desktop" style="color: #388e3c;"></i>
+                            </div>
+                            <h3>Kelas Reguler Komputer</h3>
+                            <p>Pilihan kelas: Basic, Office, Design. Cocok untuk pemula yang ingin meningkatkan skill.</p>
+                            <a href="#" class="btn-detail">Lihat Detail</a>
+                        </div>
+                        <div class="service-details">
+                            <div class="detail-section">
+                                <h4>Harga Mulai Dari</h4>
+                                <p class="price">Rp 300.000 <span>/ 4 sesi</span></p>
+                            </div>
+                            <div class="detail-section">
+                                <h4>Yang Anda Dapatkan</h4>
+                                <ul>
+                                    <li>Pilihan kelas (Basic, Office, Design)</li>
+                                    <li>Materi praktik dan projek</li>
+                                    <li>Sertifikat</li>
+                                    <li>Akses ke grup diskusi</li>
+                                </ul>
+                            </div>
+                            <a href="kontak.html" class="btn btn-primary">Daftar Sekarang</a>
+                        </div>
+                    </div>
+
+                    <!-- Card Kelas Privat -->
+                    <div class="service-card">
+                        <div class="card-header" onclick="toggleDetails(this)">
+                            <div class="service-icon-circle" style="background-color: #fff3e0;">
+                                <i class="fas fa-user-graduate" style="color: #f57c00;"></i>
+                            </div>
+                            <h3>Kelas Privat</h3>
+                            <p>Kelas private 1 guru 1 murid, jadwal fleksibel, materi 100% disesuaikan kebutuhan.</p>
+                            <a href="#" class="btn-detail">Lihat Detail</a>
+                        </div>
+                        <div class="service-details">
+                            <div class="detail-section">
+                                <h4>Harga Mulai Dari</h4>
+                                <p class="price">Rp 50.000 <span>/ sesi</span></p>
+                            </div>
+                            <div class="detail-section">
+                                <h4>Yang Anda Dapatkan</h4>
+                                <ul>
+                                    <li>Jadwal fleksibel</li>
+                                    <li>Materi 100% disesuaikan</li>
+                                    <li>Free konsultasi</li>
+                                    <li>Report progress untuk orang tua</li>
+                                </ul>
+                            </div>
+                            <a href="kontak.html" class="btn btn-primary">Daftar Sekarang</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Testimoni (Baru) -->
+        <section id="testimonials" class="section-grey">
+            <div class="container text-center">
+                <h2>Apa Kata Mereka?</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"Nilai Matematika saya naik drastis setelah bergabung di sini! Caranya mengajar yang logis membuat saya paham konsepnya, bukan cuma ngafal."</p>
+                        <cite>- Rizki, Siswa SMA</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Anak saya jadi semangat belajar Komputer. Tutor-nya sabar dan materinya relevan dengan perkembangan teknologi saat ini."</p>
+                        <cite>- Ibu Siti, Orang Tua Siswa</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Ajakan Terakhir (CTA) (Baru) -->
+        <section id="cta">
+            <div class="container text-center">
+                <h2>Siap Membuka Potensi Genius Anda?</h2>
+                <p>Bergabunglah sekarang dan rasakan perbedaan cara belajar yang efektif dan menyenangkan.</p>
+                <a href="kontak.html" class="btn btn-primary btn-large">Daftar Kelas Hari Ini</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>Hak Cipta &copy; 2024 Genius Logic Class. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Toggle Detail (Ditambahkan) -->
+    <script>
+        function toggleDetails(header) {
+            // Menemukan elemen detail berikutnya dari header yang diklik
+            const details = header.nextElementSibling;
+            const button = header.querySelector('.btn-detail');
+            
+            details.classList.toggle('active');
+
+            if (details.classList.contains('active')) {
+                button.textContent = 'Tutup Detail';
+            } else {
+                button.textContent = 'Lihat Detail';
+            }
+        }
+    </script>
+
+</body>
+</html>

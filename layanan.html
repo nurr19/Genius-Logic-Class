@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Kami - Genius Logic Class</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tambahkan library Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Genius Logic Class</a>
+            <nav class="main-nav">
+                <a href="index.html">Beranda</a>
+                <a href="layanan.html" class="active">Layanan</a>
+                <a href="tentang.html">Tentang</a>
+                <a href="kontak.html">Reservasi</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="services" class="section-grey">
+            <div class="container">
+                <h2>Pilih Program Yang Tepat Untukmu</h2>
+                <div class="services-grid">
+                    
+                    <!-- Card Kelas Matematika -->
+                    <div class="service-card">
+                        <div class="card-header" onclick="toggleDetails(this)">
+                            <h3><i class="fas fa-calculator"></i> Kelas Matematika</h3>
+                            <p>Mulai dari dasar hingga lanjutan untuk tingkat SD, SMP, dan SMA.</p>
+                            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="service-details">
+                            <ul>
+                                <li><strong>Kelas 1 - 3 SD:</strong> Rp 125.000 / bulan</li>
+                                <li><strong>Kelas 4 - 5 SD:</strong> Rp 150.000 / bulan</li>
+                                <li><strong>Kelas 6 SD:</strong> Rp 200.000 / bulan</li>
+                                <li><strong>SMP & SMA:</strong> Hubungi kami untuk info paket</li>
+                            </ul>
+                            <a href="kontak.html" class="btn btn-primary">Daftar Kelas Ini</a>
+                        </div>
+                    </div>
+
+                    <!-- Card Kelas Komputer -->
+                    <div class="service-card">
+                        <div class="card-header" onclick="toggleDetails(this)">
+                            <h3><i class="fas fa-desktop"></i> Kelas Komputer</h3>
+                            <p>Kuasai berbagai keterampilan komputer, mulai dari dasar hingga produktivitas dan desain.</p>
+                            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="service-details">
+                            <ul>
+                                <li><strong>Kelas Komputer Basic:</strong> Rp 300.000 / 4 sesi</li>
+                                <li><strong>Kelas Komputer Office:</strong> Rp 350.000 / 4 sesi</li>
+                                <li><strong>Kelas Komputer Design:</strong> Rp 400.000 / 4 sesi</li>
+                            </ul>
+                            <a href="kontak.html" class="btn btn-primary">Daftar Kelas Ini</a>
+                        </div>
+                    </div>
+
+                    <!-- Card Kelas Privat (Yang Diperbarui) -->
+                    <div class="service-card">
+                        <div class="card-header" onclick="toggleDetails(this)">
+                            <h3><i class="fas fa-user-graduate"></i> Kelas Privat</h3>
+                            <p>Dapatkan perhatian penuh dan kurikulum yang disesuaikan.</p>
+                            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="service-details">
+                            <ul>
+                                <li><strong>Kelas Privat Komputer Basic:</strong> Rp 50.000 / sesi</li>
+                                <li><strong>Kelas Privat Komputer Office:</strong> Rp 75.000 / sesi</li>
+                                <li><strong>Kelas Privat Komputer Design:</strong> Rp 90.000 / sesi</li>
+                                <li><strong>Kelas Privat Matematika:</strong> Rp 50.000 / sesi</li>
+                            </ul>
+                            <a href="kontak.html" class="btn btn-primary">Daftar Kelas Ini</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>Hak Cipta &copy; 2024 Genius Logic Class. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Toggle Detail -->
+    <script>
+        function toggleDetails(header) {
+            // Menemukan elemen detail berikutnya dari header yang diklik
+            const details = header.nextElementSibling;
+            const icon = header.querySelector('.toggle-icon i');
+
+            // Toggle class 'active' untuk menampilkan/menyembunyikan detail
+            details.classList.toggle('active');
+
+            // Mengubah ikon chevron
+            if (details.classList.contains('active')) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+    </script>
+
+</body>
+</html>
