@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Joki Tugas Komputasi untuk SMK & Mahasiswa. Pemrograman, Basis Data, Jaringan, Algoritma. Cepat, rahasia, dan terpercaya.">
+    <title>Joki Tugas Komputasi - Genius Logic Class</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* CSS tambahan khusus untuk poster joki tugas */
+        :root {
+            --neon-cyan: #00f3ff;
+            --neon-purple: #9d00ff;
+            --neon-green: #00ff88;
+            --dark-bg: #0a0a0f;
+            --card-bg: #11111a;
+        }
+
+        .joki-hero {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a0a0f 100%);
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .joki-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, rgba(0, 243, 255, 0.03) 0px, rgba(0, 243, 255, 0.03) 1px, transparent 1px, transparent 40px),
+                repeating-linear-gradient(90deg, rgba(0, 243, 255, 0.03) 0px, rgba(0, 243, 255, 0.03) 1px, transparent 1px, transparent 40px);
+            pointer-events: none;
+        }
+
+        .joki-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple), var(--neon-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .joki-subtitle {
+            text-align: center;
+            color: #ccc;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .badge-level {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge-smk, .badge-kuliah {
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .badge-smk {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+        }
+
+        .badge-kuliah {
+            background: linear-gradient(135deg, #9d00ff, #6a0dad);
+            color: white;
+        }
+
+        /* Grid layanan joki */
+        .joki-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .joki-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .joki-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-green));
+        }
+
+        .joki-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 243, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.1);
+        }
+
+        .joki-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .joki-card h3 {
+            color: var(--neon-cyan);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(0, 243, 255, 0.1);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+        }
+
+        .price-start {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--neon-green);
+            margin: 1rem 0;
+        }
+
+        .price-start small {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Keunggulan section */
+        .keunggulan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .keunggulan-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 243, 255, 0.15);
+        }
+
+        .keunggulan-item i {
+            font-size: 2rem;
+            color: var(--neon-cyan);
+            margin-bottom: 0.8rem;
+        }
+
+        .keunggulan-item h4 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .keunggulan-item p {
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        /* CTA khusus */
+        .joki-cta {
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(157, 0, 255, 0.1));
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+        }
+
+        .joki-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            background: #128C7E;
+            color: white;
+        }
+
+        .deadline-badge {
+            background: #ff3366;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .joki-title {
+                font-size: 2rem;
+            }
+            .joki-cta {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.jpeg" alt="Logo Genius Logic Class">
+                <span>Genius Logic Class</span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">Beranda</a>
+                <a href="layanan.html">Layanan</a>
+                <a href="tentang.html">Tentang</a>
+                <a href="kontak.html">Reservasi</a>
+                <a href="poster.html" class="active" style="color: #00f3ff;">🔥 Joki Tugas</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section Joki Tugas -->
+        <section class="joki-hero">
+            <div class="container">
+                <h1 class="joki-title">
+                    <i class="fas fa-code"></i> JOKI TUGAS KOMPUTASI
+                </h1>
+                <p class="joki-subtitle">
+                    Khusus SMK RPL/TKJ/MM & Mahasiswa Informatika/Sistem Informasi
+                </p>
+                <div class="badge-level">
+                    <span class="badge-smk"><i class="fas fa-graduation-cap"></i> SMK</span>
+                    <span class="badge-kuliah"><i class="fas fa-university"></i> Mahasiswa</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layanan Joki Tugas -->
+        <section style="padding: 3rem 0; background: var(--dark-bg);">
+            <div class="container">
+                <h2 style="text-align: center; color: white; margin-bottom: 2rem;">
+                    <i class="fas fa-laptop-code"></i> Layanan yang Tersedia
+                </h2>
+                <div class="joki-grid">
+                    
+                    <!-- Pemrograman -->
+                    <div class="joki-card">
+                        <div class="joki-card-icon">
+                            <i class="fab fa-python" style="color: #3776AB;"></i>
+                            <i class="fab fa-java" style="color: #f89820; margin-left: 0.5rem;"></i>
+                        </div>
+                        <h3><i class="fas fa-code"></i> Pemrograman</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                        </div>
+                        <p style="color: #aaa;">Tugas coding dari yang sederhana sampai project kompleks. Dikerjakan rapi dengan dokumentasi.</p>
+                        <div class="price-start">Mulai Rp35.000</div>
+                        <span class="deadline-badge"><i class="fas fa-clock"></i> Deadline mepet? Bisa!</span>
+                    </div>
+
+                    <!-- Basis Data -->
+                    <div class="joki-card">
+                        <div class="joki-card-icon">
+                            <i class="fas fa-database" style="color: #00758f;"></i>
+                        </div>
+                        <h3><i class="fas fa-table"></i> Basis Data</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">SQL Server</span>
+                        </div>
+                        <p style="color: #aaa;">ERD, Normalisasi, Query kompleks, Join, Subquery, Stored Procedure.</p>
+                        <div class="price-start">Mulai Rp40.000</div>
+                        <span class="deadline-badge"><i class="fas fa-check-circle"></i> + Penjelasan</span>
+                    </div>
+
+                    <!-- Algoritma & Struktur Data -->
+                    <div class="joki-card">
+                        <div class="joki-card-icon">
+                            <i class="fas fa-project-diagram" style="color: var(--neon-purple);"></i>
+                        </div>
+                        <h3><i class="fas fa-chart-line"></i> Algoritma & Struktur Data</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Sorting</span>
+                            <span class="tech-tag">Linked List</span>
+                            <span class="tech-tag">Tree</span>
+                            <span class="tech-tag">Graph</span>
+                            <span class="tech-tag">Dynamic Programming</span>
+                        </div>
+                        <p style="color: #aaa;">Penyelesaian soal algoritma, analisis kompleksitas, implementasi struktur data.</p>
+                        <div class="price-start">Mulai Rp50.000</div>
+                        <span class="deadline-badge"><i class="fas fa-brain"></i> + Flowchart</span>
+                    </div>
+
+                    <!-- Jaringan Komputer -->
+                    <div class="joki-card">
+                        <div class="joki-card-icon">
+                            <i class="fas fa-network-wired" style="color: var(--neon-cyan);"></i>
+                        </div>
+                        <h3><i class="fas fa-globe"></i> Jaringan Komputer</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Cisco</span>
+                            <span class="tech-tag">Subnetting</span>
+                            <span class="tech-tag">TCP/IP</span>
+                            <span class="tech-tag">Routing</span>
+                            <span class="tech-tag">Wireshark</span>
+                        </div>
+                        <p style="color: #aaa;">Simulasi Cisco Packet Tracer, perhitungan subnet, analisis protokol.</p>
+                        <div class="price-start">Mulai Rp45.000</div>
+                        <span class="deadline-badge"><i class="fas fa-chalkboard"></i> + Laporan</span>
+                    </div>
+
+                    <!-- Laporan & PPT -->
+                    <div class="joki-card">
+                        <div class="joki-card-icon">
+                            <i class="fas fa-file-alt" style="color: #ff6b35;"></i>
+                        </div>
+                        <h3><i class="fas fa-scroll"></i> Laporan & PPT Tugas</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Dokumentasi</span>
+                            <span class="tech-tag">PPT Presentasi</span>
+                            <span class="tech-tag">Bab 1-5</span>
+                        </div>
+                        <p style="color: #aaa;">Pembuatan laporan tugas, PPT siap presentasi, format rapi dan profesional.</p>
+                        <div class="price-start">Mulai Rp30.000</div>
+                        <span class="deadline-badge"><i class="fas fa-file-pdf"></i> Word/PDF/PPT</span>
+                    </div>
+
+                    <!-- Bimbingan & Revisi -->
+                    <div class="joki-card">
+                        <div class="joki-card-icon">
+                            <i class="fas fa-chalkboard-user" style="color: var(--neon-green);"></i>
+                        </div>
+                        <h3><i class="fas fa-hand-holding-heart"></i> Bimbingan + Penjelasan</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Konsultasi</span>
+                            <span class="tech-tag">Revisi</span>
+                            <span class="tech-tag">Penjelasan Koding</span>
+                        </div>
+                        <p style="color: #aaa;">Bukan hanya ngerjain, tapi juga jelaskan biar kamu paham. Siap hadap dosen/guru!</p>
+                        <div class="price-start">Mulai Rp25.000</div>
+                        <span class="deadline-badge"><i class="fas fa-sync-alt"></i> Revisi sampai puas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keunggulan -->
+        <section style="padding: 3rem 0; background: #0d0d14;">
+            <div class="container">
+                <h2 style="text-align: center; color: white; margin-bottom: 2rem;">
+                    <i class="fas fa-star-of-life"></i> Kenapa Pilih Kami?
+                </h2>
+                <div class="keunggulan-grid">
+                    <div class="keunggulan-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>100% Anti Plagiasi</h4>
+                        <p>Kode dan laporan dibuat dari nol, tidak copy-paste</p>
+                    </div>
+                    <div class="keunggulan-item">
+                        <i class="fas fa-user-secret"></i>
+                        <h4>Rahasia Terjamin</h4>
+                        <p>Identitas kamu aman, tidak akan bocor ke siapa pun</p>
+                    </div>
+                    <div class="keunggulan-item">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>Revisi Gratis</h4>
+                        <p>Revisi sampai tugas diterima dosen/guru</p>
+                    </div>
+                    <div class="keunggulan-item">
+                        <i class="fas fa-chalkboard"></i>
+                        <h4>Ada Penjelasan</h4>
+                        <p>Kami jelaskan cara kerja kode biar kamu bisa presentasi</p>
+                    </div>
+                    <div class="keunggulan-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>Cepat & Tepat Waktu</h4>
+                        <p>Deadline mepet? Tetap bisa kita kerjakan</p>
+                    </div>
+                    <div class="keunggulan-item">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Harga Nego</h4>
+                        <p>Sesuai tingkat kesulitan dan budget kamu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contoh Pengerjaan -->
+        <section style="padding: 3rem 0; background: var(--dark-bg);">
+            <div class="container">
+                <h2 style="text-align: center; color: white; margin-bottom: 1rem;">
+                    <i class="fas fa-eye"></i> Contoh Hasil Pengerjaan
+                </h2>
+                <p style="text-align: center; color: #aaa; margin-bottom: 2rem;">Kode rapi, dokumentasi lengkap, siap kirim</p>
+                <div style="background: #1e1e2a; border-radius: 15px; padding: 1.5rem; border-left: 4px solid var(--neon-cyan); max-width: 600px; margin: 0 auto;">
+                    <pre style="color: #00ff88; font-family: monospace; overflow-x: auto; font-size: 0.8rem;">
+<span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">bubble_sort</span>(arr):
+    <span style="color: #f1fa8c;">n</span> = len(arr)
+    <span style="color: #ff79c6;">for</span> i <span style="color: #ff79c6;">in</span> range(n-1):
+        <span style="color: #ff79c6;">for</span> j <span style="color: #ff79c6;">in</span> range(n-i-1):
+            <span style="color: #ff79c6;">if</span> arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    <span style="color: #ff79c6;">return</span> arr
+
+<span style="color: #8be9fd;"># Contoh penggunaan</span>
+data = [64, 34, 25, 12, 22, 11, 90]
+print(bubble_sort(data))  # Output: [11, 12, 22, 25, 34, 64, 90]
+<span style="color: #8be9fd;"># + Flowchart + Penjelasan kompleksitas O(n²)</span>
+                    </pre>
+                    <p style="color: #aaa; font-size: 0.8rem; margin-top: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--neon-green);"></i> Contoh kode Bubble Sort dengan dokumentasi lengkap</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA WhatsApp -->
+        <section style="padding: 3rem 0;">
+            <div class="container">
+                <div class="joki-cta">
+                    <i class="fas fa-bolt" style="font-size: 3rem; color: var(--neon-cyan);"></i>
+                    <h3 style="color: white;">Deadline mepet? Tugas numpuk?</h3>
+                    <p style="color: #ccc; margin-bottom: 1.5rem;">Langhubung chat sekarang, konsultasi GRATIS, langsung kita bantu!</p>
+                    <a href="https://wa.me/6287727934962?text=Halo%20kak%2C%20saya%20mau%20tanya%20joki%20tugas%20komputasi%0A%0A*Tingkat%3A*%20(SMK%20%2F%20Mahasiswa)%0A*Mata%20kuliah%2Ftugas%3A*%20%0A*Deadline%3A*%20%0A*Budget%3A*%20%0A%0AMohon%20info%20estimasi%20harganya%20kak" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp fa-2x"></i> Chat via WhatsApp
+                    </a>
+                    <p style="margin-top: 1rem; font-size: 0.8rem; color: #666;">
+                        <i class="fas fa-lock"></i> Data dijamin rahasia | Respon cepat < 10 menit
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>Hak Cipta &copy; 2025 Genius Logic Class. Semua Hak Dilindungi.</p>
+            <p style="font-size: 0.7rem; margin-top: 0.5rem;">
+                <i class="fas fa-code"></i> Joki Tugas Komputasi | SMK RPL/TKJ/MM | Mahasiswa Informatika
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
